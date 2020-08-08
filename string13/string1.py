@@ -4,7 +4,7 @@ Kenzie assignment: String1
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Michael Trepanier"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,8 +28,10 @@ __author__ = "???"
 
 
 def donuts(count):
-    # your code here
-    return
+    if count >= 10:
+        return "Number of donuts: many"
+    elif count <= 10:
+        return "Number of donuts: " + str(count)
 
 
 # B. both_ends
@@ -42,8 +44,11 @@ def donuts(count):
 
 
 def both_ends(s):
-    # your code here
-    return
+    n = len(s)
+    if n > 2:
+        return s[0:2] + s[n - 2 : n]
+    elif "":
+        return result
 
 
 # C. fix_start
@@ -58,8 +63,8 @@ def both_ends(s):
 
 
 def fix_start(s):
-    # your code here
-    return
+    n = len(s)
+    return s[0] + s[1:n].replace(s[0], "*")
 
 
 # D. mix_up
@@ -73,21 +78,19 @@ def fix_start(s):
 
 
 def mix_up(a, b):
-    # your code here
-    return
+    n1 = len(a)
+    n2 = len(b)
+    return b[0:2] + a[2:n1] + " " + a[0:2] + b[2:n2]
 
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
 def test(got, expected):
     if got == expected:
-        prefix = ' OK '
+        prefix = " OK "
     else:
-        prefix = '  X '
-    print('{} got: {}    expected: {}'.format(
-        prefix,
-        repr(got),
-        repr(expected)))
+        prefix = "  X "
+    print("{} got: {}    expected: {}".format(prefix, repr(got), repr(expected)))
 
 
 # The main() function calls the above functions with interesting
@@ -96,32 +99,32 @@ def main():
     # Each line calls one of the functions above and compares its
     # result to the expected return value for that call.
 
-    print('donuts')
-    test(donuts(4), 'Number of donuts: 4')
-    test(donuts(9), 'Number of donuts: 9')
-    test(donuts(10), 'Number of donuts: many')
-    test(donuts(99), 'Number of donuts: many')
+    print("donuts")
+    test(donuts(4), "Number of donuts: 4")
+    test(donuts(9), "Number of donuts: 9")
+    test(donuts(10), "Number of donuts: many")
+    test(donuts(99), "Number of donuts: many")
 
-    print('\nboth_ends')
-    test(both_ends('spring'), 'spng')
-    test(both_ends('Hello'), 'Helo')
-    test(both_ends('a'), '')
-    test(both_ends('xyz'), 'xyyz')
+    print("\nboth_ends")
+    test(both_ends("spring"), "spng")
+    test(both_ends("Hello"), "Helo")
+    test(both_ends("a"), "")
+    test(both_ends("xyz"), "xyyz")
 
-    print('\nfix_start')
-    test(fix_start('babble'), 'ba**le')
-    test(fix_start('aardvark'), 'a*rdv*rk')
-    test(fix_start('google'), 'goo*le')
-    test(fix_start('donut'), 'donut')
+    print("\nfix_start")
+    test(fix_start("babble"), "ba**le")
+    test(fix_start("aardvark"), "a*rdv*rk")
+    test(fix_start("google"), "goo*le")
+    test(fix_start("donut"), "donut")
 
-    print('\nmix_up')
-    test(mix_up('mix', 'pod'), 'pox mid')
-    test(mix_up('dog', 'dinner'), 'dig donner')
-    test(mix_up('gnash', 'sport'), 'spash gnort')
-    test(mix_up('pezzy', 'firm'), 'fizzy perm')
+    print("\nmix_up")
+    test(mix_up("mix", "pod"), "pox mid")
+    test(mix_up("dog", "dinner"), "dig donner")
+    test(mix_up("gnash", "sport"), "spash gnort")
+    test(mix_up("pezzy", "firm"), "fizzy perm")
 
 
 # Standard boilerplate (python idiom) to call the main() function.
 # This is called an "import guard".
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
