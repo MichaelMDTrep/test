@@ -46,9 +46,9 @@ def donuts(count):
 def both_ends(s):
     n = len(s)
     if n > 2:
-        return s[0:2] + s[n - 2 : n]
-    elif "":
-        return result
+        return s[0:2] + s[n - 2: n]
+    elif "a":
+        return ""
 
 
 # C. fix_start
@@ -63,6 +63,7 @@ def both_ends(s):
 
 
 def fix_start(s):
+
     n = len(s)
     return s[0] + s[1:n].replace(s[0], "*")
 
@@ -90,7 +91,8 @@ def test(got, expected):
         prefix = " OK "
     else:
         prefix = "  X "
-    print("{} got: {}    expected: {}".format(prefix, repr(got), repr(expected)))
+    print("{} got: {} expected: {}".format(
+        prefix, repr(got), repr(expected)))
 
 
 # The main() function calls the above functions with interesting
