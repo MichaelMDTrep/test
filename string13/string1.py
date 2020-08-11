@@ -4,7 +4,8 @@ Kenzie assignment: String1
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "Michael Trepanier"
+__author__ = "Michael Trepanier used some sources"
+"https://googolbound.com/2018/01/21/4-starting-with-python/"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0

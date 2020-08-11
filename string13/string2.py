@@ -23,8 +23,12 @@ __author__ = "Michael Trepanier"
 
 
 def verbing(s):
-    # your code here
-    return
+    if len(s) < 3:
+        return s
+    elif s.endswith('ing'):
+        return s + 'ly'
+    else:
+        return s + 'ing'
 
 
 # E. not_bad
@@ -37,8 +41,16 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    snot = s.find('not')
+    sbad = s.find('bad')
+
+    if sbad > snot:
+        s = s.replace(s[snot:(sbad+3)], 'good')
+
+    print(s)
+    return s
+    # elif:
+    # return s
 
 
 # F. front_back
@@ -52,18 +64,35 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    if len(a) % 2 == 0:
+        afront = a[0:len(a)//2]
+        aback = a[len(a)//2:len(a)]
+    else:
+        afront = a[0:(len(a)+1)//2]
+        aback = a[(len(a)+1)//2:len(a)]
 
+    if len(b) % 2 == 0:
+        bfront = b[0:len(b)//2]
+        bback = b[len(b)//2:len(b)]
+    else:
+        bfront = b[0:(len(b)+1)//2]
+        bback = b[(len(b)+1)//2:len(b)]
+
+    s = afront+bfront+aback+bback
+    print(afront)
+    return s
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
+
+
 def test(got, expected):
     if got == expected:
         prefix = " OK "
     else:
         prefix = "  X "
-    print("{} got: {}     expected: {}".format(prefix, repr(got), repr(expected)))
+    print("{} got: {}     expected: {}".format(
+        prefix, repr(got), repr(expected)))
 
 
 # The main() function calls the above functions with interesting
